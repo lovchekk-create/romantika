@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ROMANTIKA — the saddest kitten on Solana</title>
+<meta name="description" content="ROMANTIKA — a memecoin for the romantics. One kitten, one tongue, zero chill.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Space+Mono:wght@400;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#14071f;--bg2:#1f0c33;--pink:#ff4d8d;--rose:#ffb3cf;--cream:#fff1f5;--violet:#7a3cff;--line:rgba(255,179,207,.18)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--cream);font-family:'Space Mono',monospace;line-height:1.6;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+ background:radial-gradient(60% 50% at 80% 0%,rgba(122,60,255,.35),transparent 70%),radial-gradient(50% 50% at 0% 40%,rgba(255,77,141,.22),transparent 70%),radial-gradient(60% 50% at 100% 100%,rgba(255,77,141,.18),transparent 70%)}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.07;mix-blend-mode:overlay;
+ background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+/* nav */
+nav{position:sticky;top:0;z-index:40;backdrop-filter:blur(12px);background:rgba(20,7,31,.7);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:'Playfair Display',serif;font-style:italic;font-weight:900;font-size:24px;letter-spacing:.5px}
+.logo span{color:var(--pink)}
+nav ul{display:flex;gap:26px;list-style:none;font-size:13px;text-transform:uppercase;letter-spacing:.12em}
+nav ul a{opacity:.75;transition:.2s}nav ul a:hover{opacity:1;color:var(--pink)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 24px;border-radius:999px;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.12em;border:1.5px solid var(--pink);transition:.25s;cursor:pointer;font-family:inherit;color:var(--cream);background:transparent}
+.btn.fill{background:var(--pink);color:#2a0716;box-shadow:0 0 30px rgba(255,77,141,.45)}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 34px rgba(255,77,141,.5)}
+/* hero */
+.hero{min-height:calc(100vh - 64px);display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:60px 0 40px}
+.tag{display:inline-block;font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:var(--rose);border:1px solid var(--line);padding:6px 14px;border-radius:999px;margin-bottom:22px}
+h1{font-family:'Playfair Display',serif;font-weight:900;font-style:italic;font-size:clamp(54px,9.4vw,128px);line-height:.92;letter-spacing:-.02em}
+h1 em{display:block;font-style:normal;background:linear-gradient(90deg,var(--pink),#ff9fc4 60%,var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{margin:26px 0 34px;max-width:480px;color:#e9cfe0;font-size:15px}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+.cover-wrap{position:relative;display:grid;place-items:center}
+.vinyl{position:absolute;width:88%;aspect-ratio:1;border-radius:50%;right:-14%;top:8%;
+ background:repeating-radial-gradient(circle at center,#0b0310 0 2px,#190826 3px 5px);animation:spin 9s linear infinite;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.vinyl::after{content:"ROMANTIKA";position:absolute;inset:34%;border-radius:50%;background:radial-gradient(circle,#14071f 0 12%,var(--pink) 13%);display:grid;place-items:center;font-family:'Bebas Neue';font-size:clamp(9px,1.3vw,16px);letter-spacing:.2em;color:#2a0716}
+@keyframes spin{to{transform:rotate(360deg)}}
+.cover{position:relative;width:78%;aspect-ratio:1;border-radius:6px;overflow:hidden;transform:rotate(-5deg);transition:transform .5s;box-shadow:0 30px 80px rgba(255,77,141,.35),0 0 0 8px var(--cream);z-index:2}
+.cover:hover{transform:rotate(0) scale(1.03)}
+.cover img{width:100%;height:100%;object-fit:cover;display:block}
+.cover::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.18),transparent 40%)}
+.badge{position:absolute;z-index:3;left:-2%;bottom:6%;background:var(--pink);color:#2a0716;font-family:'Bebas Neue';font-size:22px;letter-spacing:.12em;padding:6px 16px;transform:rotate(-8deg);box-shadow:0 8px 22px rgba(0,0,0,.4)}
+/* marquee */
+.marq{border-block:1px solid var(--line);background:rgba(255,77,141,.08);overflow:hidden;position:relative;z-index:2}
+.marq div{display:flex;width:max-content;animation:mq 28s linear infinite}
+.marq span{font-family:'Bebas Neue';font-size:34px;letter-spacing:.14em;padding:12px 28px;white-space:nowrap}
+.marq span:nth-child(even){color:var(--pink)}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* sections */
+section{padding:110px 0;position:relative}
+.eyebrow{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--pink);margin-bottom:14px}
+h2{font-family:'Playfair Display',serif;font-style:italic;font-weight:900;font-size:clamp(38px,6vw,76px);line-height:1;margin-bottom:34px}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.about p{color:#e9cfe0;margin-bottom:18px;font-size:15px}
+.about p b{color:var(--cream)}
+.quote{border-left:3px solid var(--pink);padding:6px 0 6px 22px;font-family:'Playfair Display',serif;font-style:italic;font-size:26px;line-height:1.3;color:var(--rose)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+.stat{border:1px solid var(--line);border-radius:14px;padding:18px;background:rgba(255,255,255,.03)}
+.stat b{display:block;font-family:'Bebas Neue';font-size:38px;color:var(--pink);letter-spacing:.06em;line-height:1}
+.stat small{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#cfaec3}
+/* tracklist */
+.tracks{list-style:none;border-top:1px solid var(--line)}
+.track{display:grid;grid-template-columns:70px 1fr auto;gap:18px;align-items:center;padding:24px 10px;border-bottom:1px solid var(--line);transition:.25s;cursor:default}
+.track:hover{background:rgba(255,77,141,.09);padding-left:24px}
+.track .n{font-family:'Bebas Neue';font-size:40px;color:var(--pink);opacity:.8}
+.track h3{font-family:'Playfair Display',serif;font-size:26px;font-style:italic}
+.track p{font-size:13px;color:#cfaec3}
+.track .t{font-size:13px;color:var(--rose);letter-spacing:.1em;white-space:nowrap}
+.side{font-family:'Bebas Neue';letter-spacing:.3em;font-size:18px;color:var(--rose);margin:44px 0 12px}
+/* ca */
+.ca{border:1.5px dashed var(--pink);border-radius:20px;padding:34px;background:linear-gradient(135deg,rgba(255,77,141,.1),rgba(122,60,255,.1));text-align:center}
+.ca code{display:block;margin:18px auto 22px;font-size:clamp(11px,1.7vw,16px);word-break:break-all;color:var(--cream);background:rgba(0,0,0,.35);padding:14px 18px;border-radius:12px;max-width:760px}
+.ca small{display:block;margin-top:14px;color:#cfaec3;font-size:12px}
+/* links */
+.links{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+.link{border:1px solid var(--line);border-radius:16px;padding:26px;display:flex;justify-content:space-between;align-items:center;transition:.25s;background:rgba(255,255,255,.03);font-family:'Bebas Neue';font-size:28px;letter-spacing:.1em}
+.link:hover{border-color:var(--pink);transform:translateY(-4px);background:rgba(255,77,141,.1)}
+.link span{color:var(--pink)}
+footer{border-top:1px solid var(--line);padding:46px 0 60px;text-align:center;color:#a98ca0;font-size:12px;position:relative;z-index:2}
+footer .logo{font-size:30px;margin-bottom:14px;color:var(--cream)}
+footer p{max-width:640px;margin:10px auto 0}
+/* hearts */
+.heart{position:fixed;bottom:-30px;z-index:1;pointer-events:none;color:var(--pink);opacity:.5;animation:rise linear forwards}
+@keyframes rise{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+.reveal{opacity:0;transform:translateY(34px);transition:1s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.toast{position:fixed;left:50%;bottom:30px;transform:translate(-50%,40px);background:var(--cream);color:#2a0716;padding:12px 22px;border-radius:999px;font-weight:700;opacity:0;transition:.3s;z-index:90;font-size:13px}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:860px){
+ nav ul{display:none}
+ .hero,.about{grid-template-columns:1fr}
+ .cover-wrap{order:-1;margin-bottom:20px}
+ .vinyl{right:-8%}
+ .links{grid-template-columns:1fr}
+ .track{grid-template-columns:52px 1fr}.track .t{display:none}
+ section{padding:80px 0}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="logo" href="#top">Romantika<span>.</span></a>
+  <ul><li><a href="#about">About</a></li><li><a href="#tracklist">Tracklist</a></li><li><a href="#buy">Buy</a></li><li><a href="#join">Join</a></li></ul>
+  <a class="btn fill" href="#buy">Buy $ROMANTIKA</a>
+</div></nav>
+
+<header class="wrap hero" id="top">
+  <div>
+    <span class="tag">♥ new single · explicit content</span>
+    <h1>Hopeless<em>Romantika</em></h1>
+    <p class="sub">One kitten. One tongue out. Zero chill. The memecoin for everyone who ever fell in love with the wrong chart at 3 AM.</p>
+    <div class="cta">
+      <a class="btn fill" href="#buy">Buy now →</a>
+      <a class="btn" href="#tracklist">Read the tracklist</a>
+    </div>
+  </div>
+  <div class="cover-wrap">
+    <div class="vinyl"></div>
+    <div class="cover"><img src="cat.jpg" alt="ROMANTIKA kitten cover art"></div>
+    <div class="badge">$ROMANTIKA</div>
+  </div>
+</header>
+
+<div class="marq"><div id="mq"></div></div>
+
+<section id="about"><div class="wrap about">
+  <div class="reveal">
+    <div class="eyebrow">Side A — Intro</div>
+    <h2>A love song<br>for degens.</h2>
+    <div class="quote">“He looks heartbroken. He looks hyped. He is both. Welcome to the market.”</div>
+  </div>
+  <div class="reveal">
+    <p><b>ROMANTIKA</b> is a community-driven memecoin on Solana with a single mission: to turn the world's most dramatic kitten into a legend. No roadmap pretending to cure anything. No utility. Just a very expressive face and a lot of feelings.</p>
+    <p>Every cycle has its anthem. Ours is a blurry album cover, a pink tongue, and a parental advisory sticker that says <b>we meant every word.</b></p>
+    <div class="stats">
+      <div class="stat"><b>1B</b><small>total supply</small></div>
+      <div class="stat"><b>0%</b><small>tax</small></div>
+      <div class="stat"><b>100%</b><small>feelings</small></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="tracklist"><div class="wrap">
+  <div class="reveal"><div class="eyebrow">The album</div><h2>Tracklist</h2></div>
+  <div class="side">SIDE A — THE STORY</div>
+  <ol class="tracks reveal">
+    <li class="track"><span class="n">01</span><div><h3>First Glance</h3><p>A kitten appears. The internet stops scrolling.</p></div><span class="t">0:42</span></li>
+    <li class="track"><span class="n">02</span><div><h3>Tongue Out</h3><p>The face that launched a thousand memes.</p></div><span class="t">1:13</span></li>
+    <li class="track"><span class="n">03</span><div><h3>Explicit Content</h3><p>Warning: contains sincerity, volatility and cat energy.</p></div><span class="t">2:08</span></li>
+  </ol>
+  <div class="side">SIDE B — THE PLAN</div>
+  <ol class="tracks reveal">
+    <li class="track"><span class="n">04</span><div><h3>Fair Launch</h3><p>Everyone starts at the same line. No presale, no team bags, no tax.</p></div><span class="t">3:00</span></li>
+    <li class="track"><span class="n">05</span><div><h3>Community Chorus</h3><p>Memes, raids and fan art — the holders write the verses.</p></div><span class="t">3:33</span></li>
+    <li class="track"><span class="n">06</span><div><h3>Encore</h3><p>Listings, collabs and louder volume, as the crowd decides.</p></div><span class="t">∞</span></li>
+  </ol>
+</div></section>
+
+<section id="buy"><div class="wrap">
+  <div class="reveal"><div class="eyebrow">Get the record</div><h2>How to buy</h2></div>
+  <ol class="tracks reveal" style="margin-bottom:44px">
+    <li class="track"><span class="n">1</span><div><h3>Get a wallet</h3><p>Install Phantom or Solflare and create a Solana wallet.</p></div></li>
+    <li class="track"><span class="n">2</span><div><h3>Add SOL</h3><p>Buy SOL on an exchange and send it to your wallet.</p></div></li>
+    <li class="track"><span class="n">3</span><div><h3>Swap for $ROMANTIKA</h3><p>Paste the contract address below into your DEX of choice and swap.</p></div></li>
+  </ol>
+  <div class="ca reveal">
+    <div class="eyebrow">Contract address</div>
+    <code id="ca">COMING SOON</code>
+    <button class="btn fill" id="copy">Copy address</button>
+    <small>Always verify the address from official links only.</small>
+  </div>
+</div></section>
+
+<section id="join"><div class="wrap">
+  <div class="reveal"><div class="eyebrow">Encore</div><h2>Join the crowd</h2></div>
+  <div class="links reveal">
+    <a class="link" href="#" target="_blank" rel="noopener">X / Twitter <span>↗</span></a>
+    <a class="link" href="#" target="_blank" rel="noopener">Telegram <span>↗</span></a>
+    <a class="link" href="#" target="_blank" rel="noopener">Dexscreener <span>↗</span></a>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="logo">Romantika<span style="color:var(--pink)">.</span></div>
+  <div>© 2026 ROMANTIKA · made with ♥ and bad decisions</div>
+  <p>$ROMANTIKA is a meme coin with no intrinsic value or expectation of financial return. It is not an investment. Only spend what you can afford to lose. Not financial advice.</p>
+</div></footer>
+
+<div class="toast" id="toast">Copied ♥</div>
+
+<script>
+// marquee
+(function(){var w=['ROMANTIKA','♥','TONGUE OUT','♥','EXPLICIT CONTENT','♥','HOPELESS ROMANTIC','♥','$ROMANTIKA','♥'];
+var h='';for(var i=0;i<2;i++)for(var j=0;j<4;j++)w.forEach(function(x){h+='<span>'+x+'</span>'});
+document.getElementById('mq').innerHTML=h;})();
+// hearts
+(function(){var box=document.body;
+function mk(){var s=document.createElement('div');s.className='heart';s.textContent='♥';
+s.style.left=Math.random()*100+'vw';s.style.fontSize=(12+Math.random()*22)+'px';
+var d=9+Math.random()*9;s.style.animationDuration=d+'s';box.appendChild(s);setTimeout(function(){s.remove()},d*1000);}
+setInterval(mk,1100);})();
+// reveal
+(function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});})();
+// copy
+document.getElementById('copy').addEventListener('click',function(){
+ var t=document.getElementById('ca').textContent.trim(),n=document.getElementById('toast');
+ function ok(m){n.textContent=m;n.classList.add('show');setTimeout(function(){n.classList.remove('show')},1800)}
+ try{navigator.clipboard.writeText(t).then(function(){ok('Copied ♥')},function(){ok('Press Ctrl+C to copy')})}catch(e){ok('Press Ctrl+C to copy')}
+});
+</script>
+</body>
+</html>
